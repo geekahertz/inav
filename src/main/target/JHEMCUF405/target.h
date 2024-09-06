@@ -43,6 +43,7 @@
 #define BMI270_CS_PIN           PB12
 #define BMI270_EXTI_PIN         GYRO_INT_EXTI
 
+// ICM42605/ICM42688P
 #define USE_IMU_ICM42605
 #define IMU_ICM42605_ALIGN      CW90_DEG
 #define ICM42605_CS_PIN         PB12
@@ -57,6 +58,10 @@
 #define USE_I2C_DEVICE_1
 #define I2C1_SCL                PB8
 #define I2C1_SDA                PB9
+// share uart3 with i2c2  (SCL: PB10, SDA: PB11)
+#define USE_I2C_DEVICE_2
+#define I2C_DEVICE_2_SHARES_UART3
+//#define USE_I2C_PULLUP
 
 #define USE_BARO
 #define BARO_I2C_BUS            BUS_I2C1
@@ -67,7 +72,8 @@
 #define USE_BARO_SPL06
 
 #define USE_MAG
-#define MAG_I2C_BUS             BUS_I2C1
+// compass use i2c2
+#define MAG_I2C_BUS             BUS_I2C2
 #define USE_MAG_AK8963
 #define USE_MAG_AK8975
 #define USE_MAG_HMC5883
